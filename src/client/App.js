@@ -1,24 +1,29 @@
-import React, { Component } from 'react';
-import ReactImage from './react.png';
-import NavbarTemplate from './Navbar';
+import React, { Component, Fragment } from 'react';
+import { Switch, BrowserRouter, Route } from 'react-router-dom';
+import Navigation from './Navigation';
+import Home from './Home';
+import About from './About';
+import Contact from './Contact';
 
-export default class App extends Component {
-	state = { username: null };
-
-	componentDidMount() {
-		fetch('/api/getUsername')
-			.then(res => res.json())
-			.then(user => this.setState({ username: user.username }));
-	}
-
-	render() {
-		const { username } = this.state;
-		return (
-			<div>
-				<NavbarTemplate />
-				{username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}
-				<img src={ReactImage} alt="react" />
-			</div>
-		);
-	}
+class App extends Component {
+    render() {
+        return (
+					<Fragment>
+						<Navigation />
+            <BrowserRouter>
+                <Switch>
+                    <Route exact path='/' component={Home} />
+                    <Route exact path='/about' component={About} />
+										<Route exact path='/contact' component={Contact} />
+                    <Route component={NotFound} />
+                </Switch>
+            </BrowserRouter>
+					</Fragment>
+        )
+    }
 }
+
+const NotFound = () => (
+  <h1>404.. This page is not found!</h1>);
+
+export default App;

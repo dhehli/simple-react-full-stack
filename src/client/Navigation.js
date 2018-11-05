@@ -5,16 +5,12 @@ import {
 	NavbarBrand,
 	Nav,
 	NavItem,
-	NavLink,
-	UncontrolledDropdown,
-	DropdownToggle,
-	DropdownMenu,
-	DropdownItem
+	NavLink
 } from 'reactstrap';
 
 import React, { Component } from 'react';
 
-export default class NavbarTemplate extends Component {
+export default class Navigation extends Component {
 	constructor(props) {
 		super(props);
 		this.toggle = this.toggle.bind(this);
@@ -40,20 +36,14 @@ export default class NavbarTemplate extends Component {
 					<Collapse isOpen={isOpen} navbar>
 						<Nav className="ml-auto" navbar>
 							<NavItem>
-								<NavLink href="/components/">Components</NavLink>
+								<NavLink href="/">Home</NavLink>
 							</NavItem>
 							<NavItem>
-								<NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+								<NavLink href="/about">About</NavLink>
 							</NavItem>
-							<UncontrolledDropdown nav inNavbar>
-								<DropdownToggle nav caret>Options</DropdownToggle>
-								<DropdownMenu right>
-									<DropdownItem>Option 1</DropdownItem>
-									<DropdownItem>Option 2</DropdownItem>
-									<DropdownItem divider />
-									<DropdownItem>Reset</DropdownItem>
-								</DropdownMenu>
-							</UncontrolledDropdown>
+							<NavItem>
+								<NavLink href="/contact">Contact</NavLink>
+							</NavItem>
 						</Nav>
 					</Collapse>
 				</Navbar>

@@ -12,4 +12,8 @@ app.get('/api/list', (req, res) => {
 	res.json({ list: 'entries' });
 });
 
+app.get('*', (req, res) => {
+	res.sendFile(path.resolve('./dist/index.html'));
+});
+
 app.listen(8080, () => console.log('Listening on port 8080!'));

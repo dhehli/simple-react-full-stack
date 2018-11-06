@@ -30,7 +30,7 @@ export default class Navigation extends Component {
 		const { isOpen } = this.state;
 		return (
 			<div>
-				<Navbar color="light" light expand="md">
+				<Navbar color="dark" dark expand="md">
 					<NavbarBrand href="/">reactstrap</NavbarBrand>
 					<NavbarToggler onClick={this.toggle} />
 					<Collapse isOpen={isOpen} navbar>

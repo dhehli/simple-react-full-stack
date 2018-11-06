@@ -6,21 +6,21 @@ import About from './About';
 import Contact from './Contact';
 
 class App extends Component {
-    render() {
-        return (
-					<Fragment>
-						<Navigation />
-            <BrowserRouter>
-                <Switch>
-                    <Route exact path='/' component={Home} />
-                    <Route exact path='/about' component={About} />
-										<Route exact path='/contact' component={Contact} />
-                    <Route component={NotFound} />
-                </Switch>
-            </BrowserRouter>
-					</Fragment>
-        )
-    }
+	render() {
+		return (
+			<Fragment>
+				<Navigation />
+				<BrowserRouter>
+					<Switch>
+						<Route exact path='/' component={Home} />
+						<Route exact path='/about' component={About} />
+						<Route exact path='/contact' component={Contact} />
+						<Route component={NotFound} />
+					</Switch>
+				</BrowserRouter>
+			</Fragment>
+		)
+	}
 }
 
 const NotFound = () => (

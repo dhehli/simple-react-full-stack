@@ -1,0 +1,10 @@
+[
+  {
+    "id": "contact.title",
+    "defaultMessage": "Contact"
+  },
+  {
+    "id": "contact.text",
+    "defaultMessage": "This is some text"
+  }
+]

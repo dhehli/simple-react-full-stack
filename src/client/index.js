@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { LocalizeProvider } from 'react-localize-redux';
-
+import { IntlProvider } from 'react-intl';
 import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render((
-	<LocalizeProvider>
+	<IntlProvider>
 		<BrowserRouter>
 			<App />
 		</BrowserRouter>
-	</LocalizeProvider>
+	</IntlProvider>
 ), document.getElementById('root'));

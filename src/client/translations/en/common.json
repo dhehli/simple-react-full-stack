@@ -1,0 +1,12 @@
+{
+  "contact": {
+    "title": "Contact",
+    "intro": "To get started, edit and save to reload."
+  },
+  "about": {
+    "title": "About"
+  },
+  "home": {
+    "title": "Home"
+  }
+}

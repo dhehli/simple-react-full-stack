@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { withI18n } from 'react-i18next';
 
-export default class Contact extends Component {
+class Contact extends Component {
 	render() {
+		const { t } = this.props;
+		
 	  return (
 			<div>
-				<h1>
-					<FormattedMessage id="contact.title" defaultMessage="Contact" />
-   			</h1>
-				 <p>
-				 	<FormattedMessage id="contact.text" defaultMessage="This is some text" />
-				 </p>
+				<h1>{ t('contact.title') }</h1>
+				<p>{ t('contact.intro') }</p>
 			</div>
 		);
 	}
 }
+
+export default withI18n()(Contact);

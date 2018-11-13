@@ -1,8 +1,14 @@
+import i18n from 'i18next';
+
 import {
 	Collapse,
 	Navbar,
 	NavbarToggler,
 	NavbarBrand,
+	UncontrolledDropdown,
+	DropdownToggle,
+	DropdownMenu,
+	DropdownItem,
 	Nav,
 	NavItem,
 	NavLink
@@ -44,6 +50,20 @@ export default class Navigation extends Component {
 							<NavItem>
 								<NavLink href="/contact">Contact</NavLink>
 							</NavItem>
+							<UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Language
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem onClick={() => { console.log("en")}}>
+                    English
+                  </DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem onClick={() => { console.log("en")}}>
+                    German
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
 						</Nav>
 					</Collapse>
 				</Navbar>

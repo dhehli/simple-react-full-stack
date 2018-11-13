@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
+import { withI18n } from 'react-i18next';
 
-export default class Home extends Component {
+class Home extends Component {
 	render() {
-		return (<h1>Home</h1>);
+		const { t } = this.props;
+
+		return (	
+			<h1>{ t('home.title') }</h1>
+		);
 	}
 }
+
+export default withI18n()(Home);

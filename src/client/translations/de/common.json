@@ -1,0 +1,12 @@
+{
+  "contact": {
+      "title": "Kontakt",
+      "intro": "Zum Loslegen editiere. Beim Speichern wird die App im Browser automatisch neu geladen."
+  },
+  "about": {
+    "title": "Über uns"
+  },
+  "home": {
+    "title": "Homeseite"
+  }
+}

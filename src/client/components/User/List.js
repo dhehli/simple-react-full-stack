@@ -12,7 +12,7 @@ export default class List extends Component {
 		} else {
 			content = (
 				<div>
-					<p><Button color="primary" tag={Link} to="/user/add">create user</Button></p>
+					
 					<Table striped>
 						<thead>
 							<tr>
@@ -29,7 +29,9 @@ export default class List extends Component {
 										<th scope="row">{id}</th>
 										<td>{firstname}</td>
 										<td>{lastname}</td>
-										<td></td>
+										<td>
+										<Button color="primary" tag={Link} to={`/user/edit/${id}`}>edit</Button>
+										</td>
 									</tr>
 								);
 							})}
@@ -39,6 +41,9 @@ export default class List extends Component {
 			);
 		}
 
-		return content;
+		return <div>
+			<p><Button color="primary" tag={Link} to="/user/add">create user</Button></p>
+			{content}
+		</div>
 	}
 }

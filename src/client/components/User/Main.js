@@ -20,12 +20,21 @@ export default class Main extends Component {
 	}
 
 	componentDidMount() {
-		this.upateEntries();
+		this.getEntries();
+		console.log("mount")
 	}
 
-	upateEntries() {
+	getEntries() {
 		axios.get('/api/user').then((res) => {
 			this.setState({ users: res.data });
+		}).catch((err) => {
+			this.setState({ errors: err.response.statusText });
+		});
+	}
+
+	getEntryById(id) {
+		axios.get(`/api/user/${id}`).then((res) => {
+			this.setState({ user: res.data[0] });
 		}).catch((err) => {
 			this.setState({ errors: err.response.statusText });
 		});
@@ -35,20 +44,23 @@ export default class Main extends Component {
 		event.preventDefault();
 
 		axios.post('/api/user', { firstname, lastname }).then(() => {
-			this.upateEntries();
+			this.getEntries();
 		}).catch((err) => {
 			this.setState({ errors: err.response.statusText });
 		});
 	}
 
 	render() {
-		const { users, errors } = this.state;
-		const { action } = this.props.match.params;
+		const { users, user, errors } = this.state;
+		const { match: { params: { action, id } } } = this.props;
 		let content = '';
 
 		if (errors) {
 			content = <Alert color="danger">{ errors }</Alert>;
 		} else if (action && action === 'add') {
+			content = <Form onSubmit={this.handleSubmit} />;
+		} else if (action && action === 'edit') {
+			//this.getEntryById(id);
 			content = <Form onSubmit={this.handleSubmit} />;
 		} else {
 			content = <List data={users} />;

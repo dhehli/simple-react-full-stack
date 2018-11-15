@@ -26,6 +26,17 @@ app.get('/api/user', (req, res) => {
 	});
 });
 
+app.get('/api/user/:id', (req, res) => {
+	const { id } = req.params;
+
+	database.query('SELECT * FROM user WHERE id = ?;', [id]).then((result) => {
+		res.json(result);
+	}).catch((err) => {
+		console.log(err);
+		res.json(err);
+	});
+});
+
 app.post('/api/user', (req, res) => {
 	const { firstname, lastname } = req.body;
 

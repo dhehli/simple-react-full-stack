@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 export default class FormComponent extends Component {
 	constructor(props) {
@@ -11,7 +11,8 @@ export default class FormComponent extends Component {
 				firstname: '',
 				lastname: ''
 			},
-			errors: ''
+			errors: '',
+			redirect: false
 		};
 
 		this.handleInputChange = this.handleInputChange.bind(this);
@@ -22,6 +23,7 @@ export default class FormComponent extends Component {
 		event.preventDefault();
 		const { user } = this.state;
 		const { onSubmit } = this.props;
+		this.setState({ redirect: true });
 		onSubmit(event, user);
 	}
 
@@ -37,6 +39,13 @@ export default class FormComponent extends Component {
 	}
 
 	render() {
+		const { redirect } = this.state;
+
+		console.log("test")
+
+		if (redirect) {
+			return <Redirect to='/user'/>; //Redirect is Dirty
+		}
 		return (
 			<div>
 				<p><Button color="primary" tag={Link} to="/user">back</Button></p>
@@ -47,7 +56,7 @@ export default class FormComponent extends Component {
 					</FormGroup>
 					<FormGroup>
 						<Label for="examplePassword">LastName</Label>
-						<Input type="text" name="lastname" id="lastname" placeholder="Your Lastname" onChange={this.handleInputChange}/>
+						<Input type="text" name="lastname" id="lastname" placeholder="Your Lastname" onChange={this.handleInputChange} />
 					</FormGroup>
 					<Button>Submit</Button>
 				</Form>
